@@ -1,0 +1,44 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body {
+    background: #ffffff;
+    text-align: left;
+}
+@media all and (min-width: 50em) {
+    main {
+        border: 1px double #000000;
+        width: 45em;
+        margin: 0 auto;
+    }
+    
+    header {
+        color: rgb(209, 2, 71);
+    }
+    .menu {
+        display: flex;
+        align-items: baseline;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .menu-header {
+        line-height: 1em;
+        /* align-self: flex-end; */
+        border-bottom: #000000 1px dotted;
+        /* vertical-align: text-bottom; */
+    }
+    .menu-header_text {
+        font-size: 2em;
+        line-height: 1em;
+        width: 90%;
+        text-align: left;
+    }
+    .menu-header_vol,
+    .menu-header_price {
+        font-size: 10px;
+        line-height: 1em;
+        width: 10%;
+        
+    }
+}
