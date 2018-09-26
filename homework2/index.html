@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>The best CaclulatoR ever</title>
+    <meta name="description" content="The Inputer">
+    <meta name="author" content="GeorgiyGolovenko">
+    <link rel="stylesheet" href="./styles/style.css" media="all">
+</head>
+
+<body>
+    <main>
+        <div class="description">1. Create form with 10 different buttons (with 0-9 values) and one “output” field. When press any button,
+                appropriate number should be shown in “output” field. Implement with one event listener.</div>
+        <div class="description">2. Based on previous task. Save last user chosen value to localStorage. Fill “output” field with saved value on
+                startup.</div>
+        <h1>Almost Calculator</h1>
+        <div class="inputer">
+            <div class="inputer-out"></div>
+            <div id="digits" class="digits">
+                <button type="button" class="clean" value="">CE</button>
+            </div>
+        </div>
+
+        <div class="description description_margin">3. Why doesn’t work and how to fix:
+                <pre>Promise.resolve(1)<br> .then((value) => { value + 1; })<br> .then(alert) // 2
+                 </pre>
+        </div>
+        <div class="description">Answer: remove curly brackets then only one line in arrow func body will be shortcut for <b>"return value + 1"</b>
+                <pre>Promise.resolve(1)<br> .then((value) => <b>value + 1</b>)<br> .then(alert) // 2</pre>
+        </div>
+
+        <div class="description description_margin">4. Should work for any object:
+                <pre>const a = {};<br> a.setName('John');<br> alert(a.name); // 'John'</pre>
+        </div>
+        <div class="description">Answer: global/base Object needs a prototype for setName</b>
+                <pre>
+Object.prototype.setName = function(name) {
+    this.name = name;
+};
+
+let a = {};
+a.setName('John');
+alert(a.name);                                     
+                </pre>
+        </div>
+
+        <div class="description description_margin">5. Implement outputCarWithDefault function:
+                <pre>
+outputCarWithDefault({ make: 'Ford' }) 
+// Make: Ford, wheels: 4
+outputCarWithDefault({ make: 'Ford', wheels: 6 }) 
+// Make: Ford, wheels: 6
+                </pre>
+                Output result in console.
+        </div>
+        <div class="description">Answer: one line arrow function below</b>
+                <pre>
+let outputCarWithDefault = (car) => 
+  console.log(`Make: ${car.make}, wheels: ${car.wheels || 4}`);
+outputCarWithDefault({ make: 'Ford' });
+outputCarWithDefault({ make: 'Ford', wheels: 6 });                                   
+                </pre>
+        </div>
+
+        <div class="description description_margin">10. Why it works so and how to fix:
+                <pre>
+var userJohn = {name: 'John', age: 30};
+var userMike = userJohn;
+userMike.name = 'Mike';
+console.log(userMike.name) // Mike - correct behavior
+console.log(userJohn.name) // Mike - wrong behavior, 'John' expected
+                </pre>
+        </div>
+        <div class="description">Answer: object copied by reference and we have to clone it to fix the error.</b>
+                <pre>
+var userJohn = {name: 'John', age: 30};
+var userMike = {...userJohn};
+// Classic solution
+// var userMike = Object.assign({}, userJohn); 
+userMike.name = 'Mike';
+console.log(userMike.name) // Mike - correct behavior
+console.log(userJohn.name) // Mike - wrong behavior, 'John' expected                                 
+                </pre>
+        </div>
+        
+
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
